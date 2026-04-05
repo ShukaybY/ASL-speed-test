@@ -1,51 +1,86 @@
 # ASL Speed Test
 
-This is a speed test to see how fast you can recongnize ASL letters.
+ASL Speed Test is a desktop Python app for practicing American Sign Language letter recognition with a timed typing challenge.
 
 ## Project Structure
 
-```
+```text
 asl-speed-test/
-├── assets/ (A–Z)
-├── main.py        
+├── assets/         # sign images and sound effects
+├── main.py
 ├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
 ## Setup & Run
 
-### 1. Install dependencies
+### 1. Create a virtual environment
+
 ```bash
-pip install -r requirements.txt
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
 ```
 
 ### 2. Run the app
+
 ```bash
+python3 main.py
+```
+
+### 3. Run it later
+
+```bash
+source .venv/bin/activate
 python3 main.py
 ```
 
 ## How to Play
 
-1. **Start** — Choose number of rounds (10 / 20 / 30) and click **Start Test**
-2. **See** — A hand sign image appears on screen
-3. **Type** — Press the letter key you think it represents
-4. **Score** — Correct/wrong tracked in real time with per-round timing
-5. **Results** — See accuracy %, average time per round, and which letters you missed
+1. Choose the number of rounds on the home screen.
+2. Click `Start Test`.
+3. A sign image appears.
+4. Type the matching letter.
+5. The app tracks correct answers, wrong answers, skips, and timing.
+6. Review your score and missed signs on the results screen.
 
-## Improvments
+## Features
 
-- Make the program more user freindly
-- add window adjustment
-- add the ability to change color pallete
-- add a "TypeRacer" like version of the game
-- add camera access and hand sign recognization
+- Modernized dark UI with improved home, game, results, and reference screens
+- Round selector pills for `10`, `20`, and `30`
+- Timed ASL letter recognition gameplay
+- Accuracy and speed summary after each run
+- Reference gallery for all A-Z signs
+- Optional sound effects loaded from `assets/`
 
 ## Reference
 
-Click **View All Signs** on the home screen to browse the full A–Z ASL alphabet grid.
+Click `View All Signs` on the home screen to browse the full A-Z ASL alphabet grid.
+
+## Sound Effects
+
+The app looks for these sound files in `assets/`:
+
+- `button_click.wav`
+- `game_start.wav`
+- `correct.wav`
+- `wrong.wav`
+- `skip.wav`
+- `game_end.wav`
+- `good_grade.wav`
+- `failing_grade.wav`
+
+On macOS, the app can fall back to `afplay` if `pygame` audio is unavailable.
+
+## Notes
+
+- The app uses `tkinter` for the GUI and `Pillow` for image handling.
+- `__pycache__/` and virtual environment folders are ignored by Git.
+- If you are on macOS with Homebrew Python, using a virtual environment is recommended.
 
 ## Dependencies
 
 - Python 3.8+
-- `tkinter` 
-- `Pillow` 
+- `tkinter`
+- `Pillow`
